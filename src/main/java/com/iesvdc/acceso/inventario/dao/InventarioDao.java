@@ -1,29 +1,29 @@
 package com.iesvdc.acceso.inventario.dao;
 
-import java.util.List;
-
 import com.iesvdc.acceso.inventario.modelo.Estancia;
 import com.iesvdc.acceso.inventario.modelo.Inventario;
 
+import java.util.List;
+
 public interface InventarioDao {
 
-    public boolean create(Inventario i);
+    boolean create(Inventario i);
 
-    public Inventario findById(int id);
+    Inventario findById(int id);
 
-    public Inventario findByNombre(String nombre);
+    Inventario findByNombre(String nombre);
 
-    public Inventario findByEstancia(Estancia e);
+    Inventario findByEstancia(Estancia e);
 
-    public boolean update(Inventario o, Inventario n);
+    boolean update(Inventario o, Inventario n);
 
-    public boolean update(int id, Inventario n);
+    boolean update(int id, Inventario n);
 
-    public boolean delete(Inventario i);
+    boolean delete(Inventario i);
 
-    public boolean delete(int id);
+    boolean delete(int id);
 
-    public List<Inventario> findAll();
+    List<Inventario> findAll();
 
-    public int count();
+    int count();
 }

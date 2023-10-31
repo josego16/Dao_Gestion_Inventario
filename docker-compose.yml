@@ -11,10 +11,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: zx76wbz7FG89k
     ports:
-      - 33306:3306
+      - "33306:3306"
 
   adminer:
     image: adminer:latest
     restart: "no"
     ports:
-      - 8181:8080
+      - "8181:8080"

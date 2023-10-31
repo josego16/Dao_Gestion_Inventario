@@ -1,34 +1,34 @@
 package com.iesvdc.acceso.inventario.dao;
 
-import java.util.List;
-
 import com.iesvdc.acceso.inventario.modelo.Estancia;
 import com.iesvdc.acceso.inventario.modelo.Incidencia;
 import com.iesvdc.acceso.inventario.modelo.Usuario;
 
+import java.util.List;
+
 public interface IncidenciaDao {
 
-    public boolean create(Incidencia i);
+    boolean create(Incidencia i);
 
-    public Incidencia findById(int id);
+    Incidencia findById(int id);
 
-    public Incidencia findByNombre(String nombre);
+    Incidencia findByNombre(String nombre);
 
-    public Incidencia findByEstancia(Estancia e);
+    Incidencia findByEstancia(Estancia e);
 
-    public Incidencia findByOperario(Usuario o);
+    Incidencia findByOperario(Usuario o);
 
-    public Incidencia findByUsuario(Usuario u);
+    Incidencia findByUsuario(Usuario u);
 
-    public boolean update(Incidencia o, Incidencia n);
+    boolean update(Incidencia o, Incidencia n);
 
-    public boolean update(int id, Incidencia n);
+    boolean update(int id, Incidencia n);
 
-    public boolean delete(Incidencia i);
+    boolean delete(Incidencia i);
 
-    public boolean delete(int id);
+    boolean delete(int id);
 
-    public List<Incidencia> findAll();
+    List<Incidencia> findAll();
 
-    public int count();
+    int count();
 }

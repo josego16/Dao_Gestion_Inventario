@@ -1,36 +1,33 @@
 package com.iesvdc.acceso.inventario.daoimp;
 
+import com.iesvdc.acceso.inventario.conexion.Conexion;
+import com.iesvdc.acceso.inventario.dao.UsuarioDao;
+import com.iesvdc.acceso.inventario.modelo.Usuario;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iesvdc.acceso.inventario.conexion.Conexion;
-import com.iesvdc.acceso.inventario.dao.UsuarioDao;
-import com.iesvdc.acceso.inventario.modelo.TipoUsuario;
-import com.iesvdc.acceso.inventario.modelo.Usuario;
-import com.mysql.cj.PreparedQuery;
-
 public class UsuarioDaoImp implements UsuarioDao {
 
 
-    
-    public List<Usuario> findAll(){
-        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+    public List<Usuario> findAll() {
+        List<Usuario> listaUsuarios = new ArrayList<>();
         try {
             String sql = "select * from usuario";
             Conexion con = new Conexion();
             Connection conexion = con.getConnection();
             PreparedStatement ps = conexion.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 listaUsuarios.add(new Usuario(
-                    rs.getInt("id"),
-                    rs.getString("username"),
-                    rs.getString("password"),
-                    rs.getString("tipo"),
-                    rs.getString("email")
+                        rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("tipo"),
+                        rs.getString("email")
                 ));
             }
             conexion.close();
@@ -42,9 +39,9 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     /**
      * Método para crear un usuario en la BBDD
-     * 
-     * @param Usuario u: el usuario a dar de alta en la
-     *                base de datos
+     *
+     * @param u u: el usuario a dar de alta en la
+     *          base de datos
      * @return verdadero si éxito
      */
     public boolean create(Usuario u) {
@@ -59,7 +56,7 @@ public class UsuarioDaoImp implements UsuarioDao {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, u.getUsername());
             ps.setString(2, u.getPassword());
-            ps.setString(3, u.getTipo().toString());
+            ps.setString(3, u.getTipo());
             ps.setString(4, u.getEmail());
             if (ps.executeUpdate() == 0)
                 resultado = false;
@@ -74,8 +71,8 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     /**
      * Busca un usuario por su identificador
-     * 
-     * @param int el id del usuario a buscar
+     *
+     * @param id el id del usuario a buscar
      * @return false si no está el ID o no conecta
      */
     public Usuario findById(int id) {
@@ -94,10 +91,8 @@ public class UsuarioDaoImp implements UsuarioDao {
                         rs.getString("password"),
                         String.valueOf(rs.getString("tipo")),
                         rs.getString("email"));
-            } else {
-                // no encontrado, usuario NULL
-                u = null;
-            }
+            }  // no encontrado, usuario NULL
+
             connection.close();
         } catch (Exception e) {
             System.out.println("::UsuarioDaoImp::findById:: Error: " + e.getLocalizedMessage());
@@ -124,7 +119,6 @@ public class UsuarioDaoImp implements UsuarioDao {
 
             } else {
                 // no encontrado, usuario NULL
-                u = null;
             }
             connection.close();
         } catch (Exception e) {
@@ -151,10 +145,9 @@ public class UsuarioDaoImp implements UsuarioDao {
                         String.valueOf(rs.getString("tipo")),
                         rs.getString("email"));
 
-            } else {
-                // TODO: Borrar estas líneas
-                // no encontrado, usuario NULL
-            }
+            }  // TODO: Borrar estas líneas
+            // no encontrado, usuario NULL
+
             connection.close();
         } catch (Exception e) {
             System.out.println("::UsuarioDaoImp::findByUsernameAndPassword:: Error: " + e.getLocalizedMessage());
@@ -178,7 +171,7 @@ public class UsuarioDaoImp implements UsuarioDao {
             ps.setString(1, n.getUsername());
             ps.setString(2, n.getPassword());
             ps.setString(3, n.getPassword());
-            ps.setString(4, n.getTipo().toString());
+            ps.setString(4, n.getTipo());
             ps.setInt(5, id);
 
             if (ps.executeUpdate() == 0)
@@ -215,7 +208,7 @@ public class UsuarioDaoImp implements UsuarioDao {
         }
         return resultado;
     }
-    
+
     public int count() {
         int resultado = 0;
         try {
@@ -224,10 +217,10 @@ public class UsuarioDaoImp implements UsuarioDao {
             String sql = "SELECT count(*) FROM usuario";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
+
             connection.close();
         } catch (Exception e) {
-            System.out.println("::UsuarioDaoImp::count:: Error: " 
+            System.out.println("::UsuarioDaoImp::count:: Error: "
                     + e.getLocalizedMessage());
             resultado = -1;
         }

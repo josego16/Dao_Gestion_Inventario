@@ -6,7 +6,7 @@ import com.iesvdc.acceso.inventario.modelo.Estancia;
 
 public interface EstanciaDao {
 
-    public boolean create(Estancia u);
+    boolean create(Estancia u);
 
     /**
      * Busca en la base de datos estancias por su identificador.
@@ -14,19 +14,19 @@ public interface EstanciaDao {
      * @param id número entero positivo
      * @return null si no está ese id, la Estancia en caso contrario.
      */
-    public Estancia findById(int id);
+    Estancia findById(int id);
 
-    public List<Estancia> findAll();
+    List<Estancia> findAll();
 
-    public Estancia findByNombre(String nombre);
+    Estancia findByNombre(String nombre);
 
-    public boolean update(Estancia o, Estancia n);
+    boolean update(Estancia o, Estancia n);
 
-    public boolean update(int id, Estancia n);
+    boolean update(int id, Estancia n);
 
-    public boolean delete(Estancia u);
+    boolean delete(Estancia u);
 
-    public boolean delete(int id);
+    boolean delete(int id);
 
-    public int count();
+    int count();
 }

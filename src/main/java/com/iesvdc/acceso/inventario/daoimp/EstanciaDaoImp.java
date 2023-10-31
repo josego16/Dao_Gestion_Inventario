@@ -1,15 +1,15 @@
 package com.iesvdc.acceso.inventario.daoimp;
 
+import com.iesvdc.acceso.inventario.conexion.Conexion;
+import com.iesvdc.acceso.inventario.dao.EstanciaDao;
+import com.iesvdc.acceso.inventario.modelo.Estancia;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.iesvdc.acceso.inventario.conexion.Conexion;
-import com.iesvdc.acceso.inventario.dao.EstanciaDao;
-import com.iesvdc.acceso.inventario.modelo.Estancia;
 
 public class EstanciaDaoImp implements EstanciaDao {
 

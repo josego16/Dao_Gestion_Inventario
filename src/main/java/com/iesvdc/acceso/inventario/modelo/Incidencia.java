@@ -4,18 +4,18 @@ import java.util.Objects;
 
 public class Incidencia {
 
-    private int id;
-    private String asunto;
-    private String descripcion;
     Inventario inventario;
     Usuario usuario;
     Usuario operario;
+    private int id;
+    private String asunto;
+    private String descripcion;
 
     public Incidencia() {
     }
 
     public Incidencia(int id, String asunto, String descripcion, Inventario inventario, Usuario usuario,
-            Usuario operario) {
+                      Usuario operario) {
         this.id = id;
         this.asunto = asunto;
         this.descripcion = descripcion;

@@ -1,19 +1,14 @@
 package com.iesvdc.acceso.inventario;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-
-import java.io.File;
-
-import org.eclipse.persistence.jaxb.MarshallerProperties;
-
-// import com.iesvdc.acceso.inventario.dao.EstanciaDao;
-// import com.iesvdc.acceso.inventario.daoimp.EstanciaDaoImp;
-// import com.iesvdc.acceso.inventario.modelo.Estancia;
 import com.iesvdc.acceso.inventario.modelo.TipoUsuario;
 import com.iesvdc.acceso.inventario.modelo.Usuario;
 import com.iesvdc.acceso.inventario.modelo.Usuarios;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import org.eclipse.persistence.jaxb.MarshallerProperties;
+
+import java.io.File;
 
 public class Marshall {
 
