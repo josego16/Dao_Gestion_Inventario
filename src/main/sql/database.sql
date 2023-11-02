@@ -4,7 +4,7 @@ CREATE DATABASE `inventario`;
 
 -- usuario
 
-CREATE TABLE `usuario` (   
+CREATE TABLE `usuario` (
     `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,   
     `username` varchar(12) UNIQUE NOT NULL,   
     `password` varchar(20) NOT NULL,   
